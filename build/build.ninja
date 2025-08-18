@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: Tutorial
+# Project: Godot_Haptic_Plugin
 # Configurations: Debug
 # =============================================================================
 
@@ -41,40 +41,80 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/build/
 # =============================================================================
-# Object build statements for EXECUTABLE target Tutorial
+# Object build statements for SHARED_LIBRARY target Godot_Haptic_Plugin
 
 
 #############################################
-# Order-only phony target for Tutorial
+# Order-only phony target for Godot_Haptic_Plugin
 
-build cmake_object_order_depends_target_Tutorial: phony || .
+build cmake_object_order_depends_target_Godot_Haptic_Plugin: phony || .
 
-build CMakeFiles/Tutorial.dir/tutorial.cxx.o: CXX_COMPILER__Tutorial_unscanned_Debug /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/tutorial.cxx || cmake_object_order_depends_target_Tutorial
+build CMakeFiles/Godot_Haptic_Plugin.dir/src/HapticsPlugin.cpp.o: CXX_COMPILER__Godot_Haptic_Plugin_unscanned_Debug /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/src/HapticsPlugin.cpp || cmake_object_order_depends_target_Godot_Haptic_Plugin
   CONFIG = Debug
-  DEP_FILE = CMakeFiles/Tutorial.dir/tutorial.cxx.o.d
-  FLAGS = -g -std=gnu++11
-  INCLUDES = -I/home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/build
-  OBJECT_DIR = CMakeFiles/Tutorial.dir
-  OBJECT_FILE_DIR = CMakeFiles/Tutorial.dir
+  DEFINES = -DGodot_Haptic_Plugin_EXPORTS
+  DEP_FILE = CMakeFiles/Godot_Haptic_Plugin.dir/src/HapticsPlugin.cpp.o.d
+  FLAGS = -g -std=gnu++11 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
+  INCLUDES = -I/home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/src -I/home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/include/glm-0.9.9.0 -I/home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/include/Eigen -I/home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/include/CHAI3D
+  OBJECT_DIR = CMakeFiles/Godot_Haptic_Plugin.dir
+  OBJECT_FILE_DIR = CMakeFiles/Godot_Haptic_Plugin.dir/src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Tutorial
+# Link build statements for SHARED_LIBRARY target Godot_Haptic_Plugin
 
 
 #############################################
-# Link the executable Tutorial
+# Link the shared library libGodot_Haptic_Plugin.so
 
-build Tutorial: CXX_EXECUTABLE_LINKER__Tutorial_Debug CMakeFiles/Tutorial.dir/tutorial.cxx.o
+build libGodot_Haptic_Plugin.so: CXX_SHARED_LIBRARY_LINKER__Godot_Haptic_Plugin_Debug CMakeFiles/Godot_Haptic_Plugin.dir/src/HapticsPlugin.cpp.o | /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/lib/libchai3d.a /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/lib/libchai3d.so.3
   CONFIG = Debug
-  DEP_FILE = CMakeFiles/Tutorial.dir/link.d
-  FLAGS = -g
-  LINK_FLAGS = -Xlinker --dependency-file=CMakeFiles/Tutorial.dir/link.d
-  OBJECT_DIR = CMakeFiles/Tutorial.dir
+  DEP_FILE = CMakeFiles/Godot_Haptic_Plugin.dir/link.d
+  LANGUAGE_COMPILE_FLAGS = -g
+  LINK_FLAGS = -Xlinker --dependency-file=CMakeFiles/Godot_Haptic_Plugin.dir/link.d
+  LINK_LIBRARIES = -Wl,-rpath,/home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/lib  /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/lib/libchai3d.a  /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/lib/libchai3d.so.3
+  OBJECT_DIR = CMakeFiles/Godot_Haptic_Plugin.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = Tutorial
-  TARGET_PDB = Tutorial.dbg
+  SONAME = libGodot_Haptic_Plugin.so
+  SONAME_FLAG = -Wl,-soname,
+  TARGET_FILE = libGodot_Haptic_Plugin.so
+  TARGET_PDB = Godot_Haptic_Plugin.so.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Test_Haptics_Plugin
+
+
+#############################################
+# Order-only phony target for Test_Haptics_Plugin
+
+build cmake_object_order_depends_target_Test_Haptics_Plugin: phony || cmake_object_order_depends_target_Godot_Haptic_Plugin
+
+build CMakeFiles/Test_Haptics_Plugin.dir/test/TestHapticPlugin.cpp.o: CXX_COMPILER__Test_Haptics_Plugin_unscanned_Debug /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/test/TestHapticPlugin.cpp || cmake_object_order_depends_target_Test_Haptics_Plugin
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/Test_Haptics_Plugin.dir/test/TestHapticPlugin.cpp.o.d
+  FLAGS = -g -std=gnu++11 -fvisibility=hidden -fvisibility-inlines-hidden
+  OBJECT_DIR = CMakeFiles/Test_Haptics_Plugin.dir
+  OBJECT_FILE_DIR = CMakeFiles/Test_Haptics_Plugin.dir/test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Test_Haptics_Plugin
+
+
+#############################################
+# Link the executable Test_Haptics_Plugin
+
+build Test_Haptics_Plugin: CXX_EXECUTABLE_LINKER__Test_Haptics_Plugin_Debug CMakeFiles/Test_Haptics_Plugin.dir/test/TestHapticPlugin.cpp.o | libGodot_Haptic_Plugin.so || libGodot_Haptic_Plugin.so
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/Test_Haptics_Plugin.dir/link.d
+  FLAGS = -g
+  LINK_FLAGS = -Xlinker --dependency-file=CMakeFiles/Test_Haptics_Plugin.dir/link.d
+  LINK_LIBRARIES = -Wl,-rpath,/home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/build  libGodot_Haptic_Plugin.so
+  OBJECT_DIR = CMakeFiles/Test_Haptics_Plugin.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Test_Haptics_Plugin
+  TARGET_PDB = Test_Haptics_Plugin.dbg
 
 
 #############################################
@@ -103,6 +143,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build Godot_Haptic_Plugin: phony libGodot_Haptic_Plugin.so
+
 # =============================================================================
 # Folder targets.
 
@@ -111,7 +153,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/build
 
-build all: phony Tutorial
+build all: phony libGodot_Haptic_Plugin.so Test_Haptics_Plugin
 
 # =============================================================================
 # Built-in targets
@@ -120,14 +162,14 @@ build all: phony Tutorial
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/build/cmake_install.cmake: RERUN_CMAKE | /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/CMakeLists.txt /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/TutorialConfig.h.in /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-C.cmake /usr/share/cmake/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake/Modules/Compiler/Clang.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake/Modules/Linker/GNU-C.cmake /usr/share/cmake/Modules/Linker/GNU-CXX.cmake /usr/share/cmake/Modules/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-C.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/4.0.3-dirty/CMakeCCompiler.cmake CMakeFiles/4.0.3-dirty/CMakeCXXCompiler.cmake CMakeFiles/4.0.3-dirty/CMakeSystem.cmake
+build build.ninja /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/build/cmake_install.cmake: RERUN_CMAKE | /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-C.cmake /usr/share/cmake/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake/Modules/Compiler/Clang.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake/Modules/Linker/GNU-C.cmake /usr/share/cmake/Modules/Linker/GNU-CXX.cmake /usr/share/cmake/Modules/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-C.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/4.0.3-dirty/CMakeCCompiler.cmake CMakeFiles/4.0.3-dirty/CMakeCXXCompiler.cmake CMakeFiles/4.0.3-dirty/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/CMakeLists.txt /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/TutorialConfig.h.in /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-C.cmake /usr/share/cmake/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake/Modules/Compiler/Clang.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake/Modules/Linker/GNU-C.cmake /usr/share/cmake/Modules/Linker/GNU-CXX.cmake /usr/share/cmake/Modules/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-C.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/4.0.3-dirty/CMakeCCompiler.cmake CMakeFiles/4.0.3-dirty/CMakeCXXCompiler.cmake CMakeFiles/4.0.3-dirty/CMakeSystem.cmake: phony
+build /home/danyarch/Projects/Masterbullshit/Godot_haptic_plugin/CMakeLists.txt /usr/share/cmake/Modules/CMakeCInformation.cmake /usr/share/cmake/Modules/CMakeCXXInformation.cmake /usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake/Modules/CMakeGenericSystem.cmake /usr/share/cmake/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake/Modules/CMakeLanguageInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake/Modules/Compiler/Clang-C.cmake /usr/share/cmake/Modules/Compiler/Clang-CXX.cmake /usr/share/cmake/Modules/Compiler/Clang.cmake /usr/share/cmake/Modules/Compiler/GNU.cmake /usr/share/cmake/Modules/Internal/CMakeCLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake /usr/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake /usr/share/cmake/Modules/Linker/GNU-C.cmake /usr/share/cmake/Modules/Linker/GNU-CXX.cmake /usr/share/cmake/Modules/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/GNU.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linker/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-C.cmake /usr/share/cmake/Modules/Platform/Linux-Clang-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake/Modules/Platform/Linux-GNU.cmake /usr/share/cmake/Modules/Platform/Linux-Initialize.cmake /usr/share/cmake/Modules/Platform/Linux.cmake /usr/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/4.0.3-dirty/CMakeCCompiler.cmake CMakeFiles/4.0.3-dirty/CMakeCXXCompiler.cmake CMakeFiles/4.0.3-dirty/CMakeSystem.cmake: phony
 
 
 #############################################
